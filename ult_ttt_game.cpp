@@ -34,6 +34,6 @@ int UltTTTGame::get_round() { return __round; }
 
 int UltTTTGame::get_move() { return __move; }
 
-std::vector<std::vector<int>> UltTTTGame::get_field() { return __field; }
+std::vector<std::vector<int>>* UltTTTGame::get_field() { return &__field; }
 
-std::vector<std::vector<int>> UltTTTGame::get_macro() { return __macro; }
+std::vector<std::vector<int>>* UltTTTGame::get_macro() { return &__macro; }

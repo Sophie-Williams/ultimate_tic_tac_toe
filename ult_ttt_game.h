@@ -16,8 +16,8 @@ public:
     void set_macro(const std::vector<int>& m);
     int get_round();
     int get_move();
-    std::vector<std::vector<int>> get_field();
-    std::vector<std::vector<int>> get_macro();
+    std::vector<std::vector<int>>* get_field();
+    std::vector<std::vector<int>>* get_macro();
 private:
     int __round;
     int __move;
