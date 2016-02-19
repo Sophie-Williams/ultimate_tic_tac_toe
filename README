@@ -1,18 +1,43 @@
 --------------------
 General algorithm
 --------------------
+Definitions:
+    Macro board: One of the 9 large boards composing 
+    Micro board: The 3x3 board inside of a macro board
+    Edge-play: A play inside a micro board that sends the opponent to an edge macro board 
+    Corner-play: A play inside a micro board that sends the opponent to a corner macro board 
+    Advantage: (Your pieces on a macro board) - (Opponents pieces on a macro board)
 
-- Get list of available macros
+AI Priorities: 
 
-- IF there are macros where EP's exist:
-    - Find EP's that send opponent to boards the least in their control (their pieces - your pieces)
-    - IF there is exactly one such EP:
+1) Prevent opponent from taking the center of the board.
+2) Send opponent to macro boards that you are avoiding (Edges), wasting their moves. 
+3) Consolidate your advantage into macro boards that you are aiming to capture (Corners).
+
+
+- Get list of available macro boards
+
+- IF there are available macro boards where edge-plays exist:
+    - Find edge-plays that send opponent to boards where you have the most advantage
+    - IF there is exactly one such edge-play:
         - (PLAY) Make that play
-    - ELSE IF multiple such EP's exist:
-        - Choose one in the following priority: Center, Corner, Edge
+    - ELSE IF multiple such edge-plays exist:
+        - Choose one in a macro board of the following priority: (1) Center, (2) Corner, (3) Edge
         - IF multiple options of equally high priority exist:
+            - Choose the macro board in which you have the highest advantage
+            - IF multiple such macro boards are tied for highest advantage:
+                - (PLAY) Choose randomly
+
+- ELSE IF no available macro boards have edge-plays:
+    - Find corner-plays that send opponent to the board where you have the most advantage
+    - IF there is exactly one such corner-play:
+        - (PLAY) Make that play
+    - ELSE IF multiple such corner-plays exist:
+        - Choose one of those corner-plays in the macro board in which you have a greater advantage
+        - IF multiple such macro boards are tied for highest advantage:
             - (PLAY) Choose randomly
 
-- ELSE IF no macro's have EP's:
-    - Determine which diagonal you have a better chance of winning on: SUM(your pieces) along both and compare
-    - (PLAY) 
+- ELSE IF no macro boards have corner-plays:
+    - Play for the center board
+
+
