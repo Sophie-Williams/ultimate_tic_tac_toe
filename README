@@ -1,6 +1,6 @@
---------------------
-General algorithm
---------------------
+----------------------------------------------------------------------------------------------------
+ULTIMATE TIC-TAC-TOE AI
+----------------------------------------------------------------------------------------------------
 Definitions:
     Macro board: One of the 9 large boards composing 
     Micro board: The 3x3 board inside of a macro board
@@ -8,14 +8,16 @@ Definitions:
     Corner-play: A play inside a micro board that sends the opponent to a corner macro board 
     Advantage: (Your pieces on a macro board) - (Opponents pieces on a macro board)
 
-AI Priorities: 
+AI Priority List: 
 
 1) Prevent opponent from taking the center of the board.
 2) Send opponent to macro boards that you are avoiding (Edges), wasting their moves. 
 3) Consolidate your advantage into macro boards that you are aiming to capture (Corners).
+----------------------------------------------------------------------------------------------------
 
+- Get list of available macro boards from the game engine
 
-- Get list of available macro boards
+- From the list of available macro boards, determine which have available edge-plays
 
 - IF there are available macro boards where edge-plays exist:
     - Find edge-plays that send opponent to boards where you have the most advantage
