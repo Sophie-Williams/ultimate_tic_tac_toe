@@ -1,0 +1,18 @@
+--------------------
+General algorithm
+--------------------
+
+- Get list of available macros
+
+- IF there are macros where EP's exist:
+    - Find EP's that send opponent to boards the least in their control (their pieces - your pieces)
+    - IF there is exactly one such EP:
+        - (PLAY) Make that play
+    - ELSE IF multiple such EP's exist:
+        - Choose one in the following priority: Center, Corner, Edge
+        - IF multiple options of equally high priority exist:
+            - (PLAY) Choose randomly
+
+- ELSE IF no macro's have EP's:
+    - Determine which diagonal you have a better chance of winning on: SUM(your pieces) along both and compare
+    - (PLAY) 
